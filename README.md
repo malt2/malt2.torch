@@ -6,27 +6,18 @@ malt-dstorm2 for torch packages
    on some machines, you might need things something like:
        source [torch-dir]/install/bin/torch-activate
        source /opt/intel/mkl/bin/intel64/mklvars.sh intel64
-   on snake10/snake08, you can try
-       module install icc cuda80 luajit
+ 
 
 2) Before installing this torch module, you must compile dstorm and liborm)
-       cd ../dstorm
-       make exports
-       # add the suggested export lines to your environment
-       ./mkit.sh <type> test
-   where TYPE is : 
-                 ORM (liborm )
-              or MPI (liborm [+orm] + mpi)
-              or GPU (liborm + mpi + gpu)
-   A side effect is to create ../dstorm-env.{mk|cmake} environment files, so lua capabilities
-   can match the libdstorm compile options.
-
-3) You can install the package by opening a terminal, changing directory into the folder and typing:
-       luarocks make
-   or perhaps force a full recompile with
-       rm -rf build && VERBOSE=7 luarocks make malt-2-scm-1.rockspec >& mk.log && echo YAY
-
-5) Run a quick test.
+   First, checkout the parent module:
+   
+   ```
+   git clone https://github.com/malt2/malt2 --recursive
+   ```
+   and type make. 
+   
+   
+3) Run a quick test.
 
    - if MPI, then you'll need to run via mpirun, perhaps something like:
          mpirun -np 3 `which th` `pwd -P`/test.lua mpi 2>&1 | tee test-mpi.log
@@ -44,7 +35,7 @@ malt-dstorm2 for torch packages
          require "torch"
          require "malt2"
 
-6) Run over multiple GPUs.
+4) Run over multiple GPUs.
     MPI only sees the hostname. By default, on everyhost, MPI jobs enumerate the
     GPUs and start running the processes. The only way to change this and run on
     other GPUs in a round-robin fashion is to change this enumeration for every
