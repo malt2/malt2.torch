@@ -2,7 +2,7 @@ package = "malt-2"
 version = "scm-1"
 
 source = {
-    url = "file:///net/mlfs01/export/users/asim/malt-2/torch/"
+    url = "git://github.com/malt2/malt2.torch"
 }
 
 description = {
@@ -10,7 +10,7 @@ description = {
    detailed = [[
    	    malt2 torch package
    ]],
-   homepage = "https://mlsvn.nec-labs.com/projects/mlsvn/browser/milde_pkg/milde_malt2"
+   homepage = "https://github.com/malt2/malt2.torch"
 }
 
 dependencies = {
