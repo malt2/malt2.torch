@@ -2,6 +2,8 @@ malt2.torch
 ============
 malt-dstorm2 for torch packages
 
+See the [malt website](https://malt2.github.io) for more details about MALT2.
+
 1) Source your torch/cuda/MKL environment:
    on some machines, you might need things something like:
        source [torch-dir]/install/bin/torch-activate
